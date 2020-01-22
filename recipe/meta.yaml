@@ -1,5 +1,5 @@
 {% set name = "face" %}
-{% set version = "20.1.0" %}
+{% set version = "20.1.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 3bcd12894a63f34bd660b9e5743c50228445842d401ec759c9fc20dcf925e4d2
+  sha256: 7d59ca5ba341316e58cf72c6aff85cca2541cf5056c4af45cb63af9a814bed3e
 
 build:
   number: 0
