@@ -1,13 +1,13 @@
 {% set name = "face" %}
-{% set version = "20.1.1" %}
+{% set version = "24.0.0" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 7d59ca5ba341316e58cf72c6aff85cca2541cf5056c4af45cb63af9a814bed3e
+  url: "https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 611e29a01ac5970f0077f9c577e746d48c082588b411b33a0dd55c4d872949f6
 
 build:
   number: 0
@@ -17,22 +17,30 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
+    - setuptools
   run:
-    - boltons
-    - python
+    - boltons >=20.0.0
+    - python >={{ python_min }}
 
 test:
   imports:
     - face
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python {{ python_min }}
 
 about:
-  home: "https://github.com/mahmoud/face"
-  license: "BSD-3-Clause"
-  license_family: "BSD"
-  license_file: "LICENSE"
+  home: https://github.com/mahmoud/face
+  doc_url: https://python-face.readthedocs.io/
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
   summary: "A command-line interface parser and framework, friendly for users, full-featured for developers."
 
 extra:
   recipe-maintainers:
     - CJ-Wright
+    - thewchan
