@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: face
-  version: 26.0.0
+  version: "26.0.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: ae12136ff0052f124811f5319670a8d9d29b7d2caaaabe542813690967cc6bca
+  sha256: 8183d94bc248baaea855a9f8445f97a22a9988908e60abddccc6e251da77c4c6
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
